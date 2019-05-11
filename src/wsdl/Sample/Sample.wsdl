@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        targetNamespace="http://esb.service.resolvix.com/sample/"
+        xmlns:tns="http://esb.service.resolvix.com/sample/"
+        xmlns:cdt="http://esb.service.resolvix.com/sample/customDataTypes/"
+        xmlns:sp="http://esb.service.resolvix.com/sample/parameters/">
+
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import
+                    namespace="http://esb.service.resolvix.com/sample/customDataTypes/"
+                    schemaLocation="CustomDataTypes.xsd" />
+
+            <xsd:import
+                    namespace="http://esb.service.resolvix.com/sample/parameters/"
+                    schemaLocation="./SampleParameters.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="SampleRequest">
+        <wsdl:part name="request" element="sp:SampleRequest" />
+    </wsdl:message>
+
+    <wsdl:message name="SampleResponse">
+        <wsdl:part name="response" element="sp:SampleResponse" />
+    </wsdl:message>
+
+    <wsdl:portType name="SamplePortType">
+        <wsdl:operation name="SampleOperation">
+            <wsdl:input message="tns:SampleRequest"/>
+            <wsdl:output message="tns:SampleResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="SampleSoapBinding" type="tns:SamplePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+            <wsdl:operation name="SampleOperation">
+            <soap:operation soapAction="http://esb.service.resolvix.com/sample/SampleOperation"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="SampleService">
+        <wsdl:documentation>SampleService</wsdl:documentation>
+        <wsdl:port name="SamplePort" binding="tns:SampleSoapBinding">
+            <soap:address location="http://esb.service.resolvix.com/sample/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
+
+

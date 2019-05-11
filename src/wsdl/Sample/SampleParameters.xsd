@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://esb.service.resolvix.com/sample/parameters/"
+        xmlns:tns="http://esb.service.resolvix.com/sample/parameters/">
+    <xsd:complexType name="SampleRequest">
+        <xsd:all>
+            <xsd:element name="name" type="xsd:string"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:complexType name="SampleResponse">
+        <xsd:all>
+            <xsd:element name="id" type="xsd:string"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:element name="SampleRequest" type="tns:SampleRequest" />
+    <xsd:element name="SampleResponse" type="tns:SampleResponse" />
+</xsd:schema>

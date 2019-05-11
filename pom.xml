@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.resolvix</groupId>
+  <artifactId>service-esb-sample</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>service-esb-sample Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+    <!-- Maven plugin dependencies -->
+    <jaxws-maven-plugin.version>2.5</jaxws-maven-plugin.version>
+
+    <!-- Implementation dependencies -->
+    <com-google-guava.version>26.0-jre</com-google-guava.version>
+
+    <com-resolvix-lib-service.version>0.0.1-SNAPSHOT</com-resolvix-lib-service.version>
+    <com-resolvix-lib-service-esb.version>0.0.1-SNAPSHOT</com-resolvix-lib-service-esb.version>
+
+    <!-- Unit test dependencies -->
+    <junit-junit.version>4.11</junit-junit.version>
+    <org-hamcrest-hamcrest-all.version>1.3</org-hamcrest-hamcrest-all.version>
+    <org-mockito-mockito-core.version>2.23.4</org-mockito-mockito-core.version>
+  </properties>
+
+  <dependencies>
+    <!-- Implementation dependencies -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${com-google-guava.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.resolvix</groupId>
+      <artifactId>lib-service</artifactId>
+      <version>${com-resolvix-lib-service.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.resolvix</groupId>
+      <artifactId>lib-service-esb</artifactId>
+      <version>${com-resolvix-lib-service-esb.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- Unit test dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit-junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-all</artifactId>
+      <version>${org-hamcrest-hamcrest-all.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${org-mockito-mockito-core.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>service-esb-sample</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxws-maven-plugin</artifactId>
+        <version>${jaxws-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <!-- The name of your generated source package -->
+          <packageName>com.resolvix.service.soa</packageName>
+          <wsdlDirectory>src/wsdl</wsdlDirectory>
+          <wsdlFiles>
+            <wsdlFile>Sample/Sample.wsdl</wsdlFile>
+          </wsdlFiles>
+          <encoding>UTF-8</encoding>
+        </configuration>
+
+        <!-- if you want to use a specific version of JAX-WS, you can do so like this -->
+        <dependencies>
+          <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-tools</artifactId>
+            <version>2.3.2</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
