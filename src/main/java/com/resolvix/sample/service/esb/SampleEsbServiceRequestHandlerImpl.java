@@ -8,6 +8,7 @@ import com.resolvix.lib.service.api.ServiceFault;
 import com.resolvix.lib.service.api.ServiceFaultMaplet;
 import com.resolvix.sample.service.esb.exception.SampleFaultOne;
 import com.resolvix.sample.service.esb.exception.SampleFaultTwo;
+import com.resolvix.service.soa.SampleFault;
 import com.resolvix.service.soa.SampleRequest;
 import com.resolvix.service.soa.SampleResponse;
 
@@ -37,13 +38,19 @@ public class SampleEsbServiceRequestHandlerImpl
     private static com.resolvix.service.soa.SampleFaultOne toSampleFaultOne(
         ProcessingContext processingContext,
         SampleFaultOne serviceFaultOne) {
-        return null;
+        SampleFault sampleFault = new SampleFault();
+        return new com.resolvix.service.soa.SampleFaultOne(
+            "SampleFaultOne",
+            sampleFault);
     }
 
     private static com.resolvix.service.soa.SampleFaultTwo toSampleFaultTwo(
         ProcessingContext processingContext,
         SampleFaultTwo serviceFaultTwo) {
-        return null;
+        SampleFault sampleFault = new SampleFault();
+        return new com.resolvix.service.soa.SampleFaultTwo(
+            "SampleFaultTwo",
+            sampleFault);
     }
 
     @Override
@@ -74,7 +81,7 @@ public class SampleEsbServiceRequestHandlerImpl
         return null;
     }
 
-    //@Override
+    @Override
     protected <E extends Exception> E fault(ProcessingContext processingContext, ServiceFault sf)
         throws Exception
     {

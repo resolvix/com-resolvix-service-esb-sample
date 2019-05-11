@@ -54,6 +54,12 @@
             <wsdl:output>
                 <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="SampleFaultOne">
+                <soap:fault name="SampleFaultOne" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="SampleFaultTwo">
+                <soap:fault name="SampleFaultTwo" use="literal" />
+            </wsdl:fault>
         </wsdl:operation>
     </wsdl:binding>
 
