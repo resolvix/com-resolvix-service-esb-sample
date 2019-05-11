@@ -5,15 +5,22 @@
         xmlns:tns="http://esb.service.resolvix.com/sample/parameters/">
     <xsd:complexType name="SampleRequest">
         <xsd:all>
-            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="name" type="xsd:string" />
         </xsd:all>
     </xsd:complexType>
     <xsd:complexType name="SampleResponse">
         <xsd:all>
-            <xsd:element name="id" type="xsd:string"/>
+            <xsd:element name="id" type="xsd:string" />
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:complexType name="SampleFault">
+        <xsd:all>
+            <xsd:element name="message" type="xsd:string" />
         </xsd:all>
     </xsd:complexType>
 
     <xsd:element name="SampleRequest" type="tns:SampleRequest" />
     <xsd:element name="SampleResponse" type="tns:SampleResponse" />
+    <xsd:element name="SampleFaultOne" type="tns:SampleFault" />
+    <xsd:element name="SampleFaultTwo" type="tns:SampleFault" />
 </xsd:schema>

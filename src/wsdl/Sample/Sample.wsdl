@@ -27,10 +27,20 @@
         <wsdl:part name="response" element="sp:SampleResponse" />
     </wsdl:message>
 
+    <wsdl:message name="SampleFaultOne">
+        <wsdl:part name="fault" element="sp:SampleFaultOne" />
+    </wsdl:message>
+
+    <wsdl:message name="SampleFaultTwo">
+        <wsdl:part name="fault" element="sp:SampleFaultTwo" />
+    </wsdl:message>
+
     <wsdl:portType name="SamplePortType">
         <wsdl:operation name="SampleOperation">
-            <wsdl:input message="tns:SampleRequest"/>
-            <wsdl:output message="tns:SampleResponse"/>
+            <wsdl:input message="tns:SampleRequest" />
+            <wsdl:output message="tns:SampleResponse" />
+            <wsdl:fault name="SampleFaultOne" message="tns:SampleFaultOne" />
+            <wsdl:fault name="SampleFaultTwo" message="tns:SampleFaultTwo" />
         </wsdl:operation>
     </wsdl:portType>
 
