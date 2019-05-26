@@ -1,7 +1,6 @@
 package com.resolvix.sample.service.esb;
 
-import com.resolvix.lib.service.BaseEsbServiceImpl;
-import com.resolvix.lib.service.api.ServiceFault;
+import com.resolvix.lib.service.esb.BaseEsbServiceImpl;
 import com.resolvix.service.soa.*;
 
 public class SampleEsbServiceImpl

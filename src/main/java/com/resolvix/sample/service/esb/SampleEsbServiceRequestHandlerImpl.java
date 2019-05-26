@@ -1,8 +1,7 @@
 package com.resolvix.sample.service.esb;
 
-import com.google.common.collect.Maps;
-import com.resolvix.lib.service.BaseEsbServiceRequestHandlerImpl;
-import com.resolvix.lib.service.ServiceFaultMap;
+import com.resolvix.lib.service.esb.BaseEsbServiceRequestHandlerImpl;
+import com.resolvix.lib.service.esb.ServiceFaultMap;
 import com.resolvix.lib.service.api.ServiceException;
 import com.resolvix.lib.service.api.ServiceFault;
 import com.resolvix.lib.service.api.ServiceFaultMaplet;
@@ -14,8 +13,6 @@ import com.resolvix.service.soa.SampleResponse;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
 
 public class SampleEsbServiceRequestHandlerImpl
     extends BaseEsbServiceRequestHandlerImpl<
