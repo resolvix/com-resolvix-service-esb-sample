@@ -7,9 +7,9 @@ import com.resolvix.lib.service.api.ServiceFault;
 import com.resolvix.lib.service.api.ServiceFaultMaplet;
 import com.resolvix.sample.service.esb.exception.SampleFaultOne;
 import com.resolvix.sample.service.esb.exception.SampleFaultTwo;
-import com.resolvix.service.soa.SampleFault;
-import com.resolvix.service.soa.SampleRequest;
-import com.resolvix.service.soa.SampleResponse;
+import com.resolvix.service.esb.sample.parameters.SampleFault;
+import com.resolvix.service.esb.sample.parameters.SampleRequest;
+import com.resolvix.service.esb.sample.parameters.SampleResponse;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,20 +32,20 @@ public class SampleEsbServiceRequestHandlerImpl
         //
     }
 
-    private static com.resolvix.service.soa.SampleFaultOne toSampleFaultOne(
+    private static com.resolvix.service.esb.sample.SampleFaultOne toSampleFaultOne(
         ProcessingContext processingContext,
         SampleFaultOne serviceFaultOne) {
         SampleFault sampleFault = new SampleFault();
-        return new com.resolvix.service.soa.SampleFaultOne(
+        return new com.resolvix.service.esb.sample.SampleFaultOne(
             "SampleFaultOne",
             sampleFault);
     }
 
-    private static com.resolvix.service.soa.SampleFaultTwo toSampleFaultTwo(
+    private static com.resolvix.service.esb.sample.SampleFaultTwo toSampleFaultTwo(
         ProcessingContext processingContext,
         SampleFaultTwo serviceFaultTwo) {
         SampleFault sampleFault = new SampleFault();
-        return new com.resolvix.service.soa.SampleFaultTwo(
+        return new com.resolvix.service.esb.sample.SampleFaultTwo(
             "SampleFaultTwo",
             sampleFault);
     }
