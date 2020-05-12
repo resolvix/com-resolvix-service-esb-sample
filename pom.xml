@@ -19,10 +19,15 @@
     <maven.compiler.target>1.8</maven.compiler.target>
 
     <!-- Maven plugin dependencies -->
-    <jaxws-maven-plugin.version>2.5</jaxws-maven-plugin.version>
+    <jaxws-maven-plugin.version>2.6</jaxws-maven-plugin.version>
 
     <!-- Implementation dependencies -->
     <com-google-guava.version>26.0-jre</com-google-guava.version>
+
+    <javax-jws-api.version>1.1</javax-jws-api.version>
+
+    <jaxws-api.version>2.3.1</jaxws-api.version>
+    <jaxws-tools.version>2.3.3</jaxws-tools.version>
 
     <com-resolvix-lib-service.version>0.0.1-SNAPSHOT</com-resolvix-lib-service.version>
     <com-resolvix-lib-service-esb.version>0.0.1-SNAPSHOT</com-resolvix-lib-service-esb.version>
@@ -34,6 +39,19 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>javax.jws</groupId>
+      <artifactId>javax.jws-api</artifactId>
+      <version>${javax-jws-api.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+
     <!-- Implementation dependencies -->
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -95,7 +113,7 @@
         </executions>
         <configuration>
           <!-- The name of your generated source package -->
-          <packageName>com.resolvix.service.soa</packageName>
+          <!--<packageName>com.resolvix.service.soa</packageName>-->
           <wsdlDirectory>src/wsdl</wsdlDirectory>
           <wsdlFiles>
             <wsdlFile>Sample/Sample.wsdl</wsdlFile>
@@ -108,7 +126,7 @@
           <dependency>
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>jaxws-tools</artifactId>
-            <version>2.3.2</version>
+            <version>${jaxws-tools.version}</version>
           </dependency>
         </dependencies>
       </plugin>
