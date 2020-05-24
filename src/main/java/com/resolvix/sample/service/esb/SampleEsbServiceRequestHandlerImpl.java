@@ -52,7 +52,6 @@ public class SampleEsbServiceRequestHandlerImpl
 
     @Override
     protected ProcessingContext initialise(SampleRequest sampleRequest)
-        throws ServiceException, ServiceFault
     {
         return null;
     }
