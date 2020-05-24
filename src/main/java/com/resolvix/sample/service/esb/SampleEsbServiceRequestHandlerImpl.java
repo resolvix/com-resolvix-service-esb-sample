@@ -10,9 +10,12 @@ import com.resolvix.sample.service.esb.exception.SampleFaultTwo;
 import com.resolvix.service.soa.SampleFault;
 import com.resolvix.service.soa.SampleRequest;
 import com.resolvix.service.soa.SampleResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class SampleEsbServiceRequestHandlerImpl
     extends BaseEsbServiceRequestHandlerImpl<
@@ -20,6 +23,7 @@ public class SampleEsbServiceRequestHandlerImpl
         SampleResponse,
         ProcessingContext>
 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SampleEsbServiceRequestHandlerImpl.class);
 
     private static final List<ServiceFaultMaplet<?, ?, ?>> SERVICE_FAULT_MAPLETS = Arrays.asList(
         ServiceFaultMaplet.of(SampleFaultOne.class, SampleEsbServiceRequestHandlerImpl::toSampleFaultOne),
@@ -50,8 +54,12 @@ public class SampleEsbServiceRequestHandlerImpl
             sampleFault);
     }
 
+    protected Logger getLogger() {
+        return LOGGER;
+    }
+
     @Override
-    protected ProcessingContext initialise(SampleRequest sampleRequest)
+    protected ProcessingContext initialise(UUID contextId, SampleRequest sampleRequest)
     {
         return null;
     }
