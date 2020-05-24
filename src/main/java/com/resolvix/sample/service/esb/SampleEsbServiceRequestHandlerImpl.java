@@ -86,9 +86,12 @@ public class SampleEsbServiceRequestHandlerImpl
     }
 
     @Override
-    protected <E extends Exception> E fault(ProcessingContext processingContext, ServiceFault sf)
-        throws Exception
-    {
+    protected <E extends Exception> E fault(ProcessingContext processingContext, ServiceFault sf) {
         return SERVICE_FAULT_MAP.map(processingContext, sf) ;
+    }
+
+    @Override
+    protected <E extends Exception> E fault(SampleRequest sampleRequest, Exception e) {
+        throw new IllegalStateException();
     }
 }
