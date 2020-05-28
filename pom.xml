@@ -52,6 +52,12 @@
       <version>1.7.30</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+
     <!-- Implementation dependencies -->
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -98,6 +104,12 @@
 
   <build>
     <finalName>service-esb-sample</finalName>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
 
     <plugins>
       <plugin>
