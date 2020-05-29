@@ -41,13 +41,17 @@ public class SampleEsbServiceImpl
         throws SampleFaultOne, SampleFaultTwo
     {
         MessageContext messageContext = context.getMessageContext();
+        Object testRpcProperty = messageContext.get("testRpcProperty");
+        if (testRpcProperty != null)
+            LOGGER.debug("testRpcProperty = {}", testRpcProperty);
+
         Object testWsProperty = messageContext.get("testWsProperty");
         if (testWsProperty != null)
-            LOGGER.debug("testWsProperty = {}");
+            LOGGER.debug("testWsProperty = {}", testWsProperty);
 
         Object testSoapProperty = messageContext.get("testSoapProperty");
         if (testSoapProperty != null)
-            LOGGER.debug("testSoapProperty = {}");
+            LOGGER.debug("testSoapProperty = {}", testSoapProperty);
 
         try {
             return execute(SampleEsbServiceRequestHandlerImpl.class, request);
