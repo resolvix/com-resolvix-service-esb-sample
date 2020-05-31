@@ -1,6 +1,6 @@
-package com.resolvix.sample.service.ws;
+package com.resolvix.sample.service.jax.ws.handler;
 
-import com.resolvix.lib.service.ws.BaseWsMessageHandlerImpl;
+import com.resolvix.lib.javax.jax.ws.handler.BaseWsMessageHandlerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

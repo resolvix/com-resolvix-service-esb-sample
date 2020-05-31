@@ -1,12 +1,12 @@
-package com.resolvix.sample.service.esb;
+package com.resolvix.sample.service.jax.ws.service.esb;
 
-import com.resolvix.lib.service.esb.BaseEsbServiceRequestHandlerImpl;
-import com.resolvix.lib.service.esb.ServiceFaultMap;
-import com.resolvix.lib.service.api.ServiceException;
-import com.resolvix.lib.service.api.ServiceFault;
-import com.resolvix.lib.service.api.ServiceFaultMaplet;
-import com.resolvix.sample.service.esb.exception.SampleFaultOne;
-import com.resolvix.sample.service.esb.exception.SampleFaultTwo;
+import com.resolvix.lib.javax.jax.ws.service.esb.BaseEsbWsServiceRequestHandlerImpl;
+import com.resolvix.lib.javax.jax.ws.service.esb.EsbWsServiceFaultMap;
+import com.resolvix.lib.javax.jax.ws.service.api.ServiceException;
+import com.resolvix.lib.javax.jax.ws.service.api.ServiceFault;
+import com.resolvix.lib.javax.jax.ws.service.api.ServiceFaultMaplet;
+import com.resolvix.sample.service.jax.ws.service.esb.exception.SampleFaultOne;
+import com.resolvix.sample.service.jax.ws.service.esb.exception.SampleFaultTwo;
 import com.resolvix.service.esb.sample.parameters.SampleFault;
 import com.resolvix.service.esb.sample.parameters.SampleRequest;
 import com.resolvix.service.esb.sample.parameters.SampleResponse;
@@ -14,21 +14,21 @@ import com.resolvix.service.esb.sample.parameters.SampleResponse;
 import java.util.Arrays;
 import java.util.List;
 
-public class SampleEsbServiceRequestHandlerImpl
-    extends BaseEsbServiceRequestHandlerImpl<
-        SampleRequest,
-        SampleResponse,
-        ProcessingContext>
+public class SampleEsbWsServiceRequestHandlerImpl
+    extends BaseEsbWsServiceRequestHandlerImpl<
+            SampleRequest,
+            SampleResponse,
+            ProcessingContext>
 {
 
     private static final List<ServiceFaultMaplet<?, ?, ?>> SERVICE_FAULT_MAPLETS = Arrays.asList(
-        ServiceFaultMaplet.of(SampleFaultOne.class, SampleEsbServiceRequestHandlerImpl::toSampleFaultOne),
-        ServiceFaultMaplet.of(SampleFaultTwo.class, SampleEsbServiceRequestHandlerImpl::toSampleFaultTwo));
+        ServiceFaultMaplet.of(SampleFaultOne.class, SampleEsbWsServiceRequestHandlerImpl::toSampleFaultOne),
+        ServiceFaultMaplet.of(SampleFaultTwo.class, SampleEsbWsServiceRequestHandlerImpl::toSampleFaultTwo));
 
-    private static final ServiceFaultMap SERVICE_FAULT_MAP
-        = ServiceFaultMap.of(SERVICE_FAULT_MAPLETS);
+    private static final EsbWsServiceFaultMap SERVICE_FAULT_MAP
+        = EsbWsServiceFaultMap.of(SERVICE_FAULT_MAPLETS);
 
-    public SampleEsbServiceRequestHandlerImpl() {
+    public SampleEsbWsServiceRequestHandlerImpl() {
         //
     }
 

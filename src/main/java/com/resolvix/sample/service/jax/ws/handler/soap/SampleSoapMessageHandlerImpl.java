@@ -1,6 +1,6 @@
-package com.resolvix.sample.service.soap;
+package com.resolvix.sample.service.jax.ws.handler.soap;
 
-import com.resolvix.lib.service.soap.BaseSoapMessageHandlerImpl;
+import com.resolvix.lib.javax.jax.ws.handler.soap.BaseSoapMessageHandlerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

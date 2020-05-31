@@ -1,6 +1,6 @@
-package com.resolvix.sample.service.rpc;
+package com.resolvix.sample.service.jax.rpc;
 
-import com.resolvix.lib.service.rpc.BaseRpcHandlerImpl;
+import com.resolvix.lib.javax.jax.rpc.handler.BaseRpcHandlerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+    <handler-chain>
+        <handler>
+            <handler-name>com.resolvix.sample.service.jax.rpc.SampleRpcHandlerImpl</handler-name>
+            <handler-class>com.resolvix.sample.service.jax.rpc.SampleRpcHandlerImpl</handler-class>
+        </handler>
+        <handler>
+            <handler-name>com.resolvix.sample.service.jax.ws.handler.SampleWsMessageHandlerImpl</handler-name>
+            <handler-class>com.resolvix.sample.service.jax.ws.handler.SampleWsMessageHandlerImpl</handler-class>
+        </handler>
+        <handler>
+            <handler-name>com.resolvix.sample.service.jax.ws.handler.soap.SampleSoapMessageHandlerImpl</handler-name>
+            <handler-class>com.resolvix.sample.service.jax.ws.handler.soap.SampleSoapMessageHandlerImpl</handler-class>
+        </handler>
+    </handler-chain>
+</handler-chains>
