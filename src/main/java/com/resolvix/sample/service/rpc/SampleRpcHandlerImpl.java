@@ -22,7 +22,19 @@ public class SampleRpcHandlerImpl
         if (!result)
             return result;
 
+        LOGGER.debug("SampleRpcHandlerImpl::handleRequest inbound");
         messageContext.setProperty("testRpcProperty", "myRpcPropertyValue");
+
+        return true;
+    }
+
+    @Override
+    public boolean handleResponse(MessageContext messageContext) {
+        boolean result = super.handleResponse(messageContext);
+        if (!result)
+            return result;
+
+        LOGGER.debug("SampleRpcHandlerImpl::handleResponse outbound");
 
         return true;
     }

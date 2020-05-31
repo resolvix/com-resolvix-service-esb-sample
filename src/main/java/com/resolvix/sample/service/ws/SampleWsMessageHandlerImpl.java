@@ -23,8 +23,15 @@ public class SampleWsMessageHandlerImpl
         if (!result)
             return result;
 
-        logicalMessageContext.put("testWsProperty", "myWsPropertyValue");
-        logicalMessageContext.setScope("testWsProperty", MessageContext.Scope.APPLICATION);
+        Boolean outboundMessage = (Boolean) logicalMessageContext.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
+        if (outboundMessage == null)
+            throw new IllegalStateException();
+
+        LOGGER.debug("SampleWsMessageHandlerImpl::handleMessage outboundMessage [{}]", outboundMessage);
+        if (!outboundMessage.booleanValue()) {
+            logicalMessageContext.put("testWsProperty", "myWsPropertyValue");
+            logicalMessageContext.setScope("testWsProperty", MessageContext.Scope.APPLICATION);
+        }
 
         return true;
     }

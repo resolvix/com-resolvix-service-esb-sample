@@ -23,8 +23,15 @@ public class SampleSoapMessageHandlerImpl
         if (!result)
             return result;
 
-        soapMessageContext.put("testSoapProperty", "mySoapPropertyValue");
-        soapMessageContext.setScope("testSoapProperty", MessageContext.Scope.APPLICATION);
+        Boolean outboundMessage = (Boolean) soapMessageContext.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
+        if (outboundMessage == null)
+            throw new IllegalStateException();
+
+        LOGGER.debug("SampleSoapMessageHandlerImpl::handleMessage outboundMessage [{}]", outboundMessage);
+        if (!outboundMessage.booleanValue()) {
+            soapMessageContext.put("testSoapProperty", "mySoapPropertyValue");
+            soapMessageContext.setScope("testSoapProperty", MessageContext.Scope.APPLICATION);
+        }
 
         return true;
     }
