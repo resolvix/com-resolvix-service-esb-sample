@@ -1,16 +1,16 @@
-package com.resolvix.sample.service.soap;
+package com.resolvix.sample.service.xml.soap;
 
-import com.resolvix.lib.service.soap.BaseSoapMessageHandlerImpl;
+import com.resolvix.lib.service.xml.soap.BaseXmlWsSoapMessageHandlerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
 
-public class SampleSoapMessageHandlerImpl
-    extends BaseSoapMessageHandlerImpl
+public class SampleXmlWsSoapMessageHandlerImpl
+    extends BaseXmlWsSoapMessageHandlerImpl
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SampleSoapMessageHandlerImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SampleXmlWsSoapMessageHandlerImpl.class);
 
     @Override
     protected Logger getLogger() {

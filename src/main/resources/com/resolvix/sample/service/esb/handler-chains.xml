@@ -2,16 +2,16 @@
 <handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
     <handler-chain>
         <handler>
-            <handler-name>com.resolvix.sample.service.rpc.SampleRpcHandlerImpl</handler-name>
-            <handler-class>com.resolvix.sample.service.rpc.SampleRpcHandlerImpl</handler-class>
+            <handler-name>com.resolvix.sample.service.xml.rpc.SampleXmlRpcHandlerImpl</handler-name>
+            <handler-class>com.resolvix.sample.service.xml.rpc.SampleXmlRpcHandlerImpl</handler-class>
         </handler>
         <handler>
-            <handler-name>com.resolvix.sample.service.ws.SampleWsMessageHandlerImpl</handler-name>
-            <handler-class>com.resolvix.sample.service.ws.SampleWsMessageHandlerImpl</handler-class>
+            <handler-name>com.resolvix.sample.service.xml.ws.SampleXmlWsMessageHandlerImpl</handler-name>
+            <handler-class>com.resolvix.sample.service.xml.ws.SampleXmlWsMessageHandlerImpl</handler-class>
         </handler>
         <handler>
-            <handler-name>com.resolvix.sample.service.soap.SampleSoapMessageHandlerImpl</handler-name>
-            <handler-class>com.resolvix.sample.service.soap.SampleSoapMessageHandlerImpl</handler-class>
+            <handler-name>com.resolvix.sample.service.xml.soap.SampleXmlWsSoapMessageHandlerImpl</handler-name>
+            <handler-class>com.resolvix.sample.service.xml.soap.SampleXmlWsSoapMessageHandlerImpl</handler-class>
         </handler>
     </handler-chain>
 </handler-chains>

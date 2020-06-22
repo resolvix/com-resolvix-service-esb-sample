@@ -1,8 +1,7 @@
 package com.resolvix.sample.service.esb;
 
 import com.resolvix.lib.service.esb.BaseEsbServiceImpl;
-import com.resolvix.sample.service.soap.SampleSoapMessageHandlerImpl;
-import com.resolvix.sample.service.ws.SampleWsMessageHandlerImpl;
+import com.resolvix.sample.service.xml.soap.SampleXmlWsSoapMessageHandlerImpl;
 import com.resolvix.service.esb.sample.SampleFaultOne;
 import com.resolvix.service.esb.sample.SampleFaultTwo;
 import com.resolvix.service.esb.sample.SamplePortType;
@@ -32,7 +31,7 @@ public class SampleEsbServiceImpl
 
     private SampleEsbServiceImpl() {
         List<Handler> handlerChain = new ArrayList<>();
-        handlerChain.add(new SampleSoapMessageHandlerImpl());
+        handlerChain.add(new SampleXmlWsSoapMessageHandlerImpl());
         ((BindingProvider) this).getBinding().setHandlerChain(handlerChain);
     }
 

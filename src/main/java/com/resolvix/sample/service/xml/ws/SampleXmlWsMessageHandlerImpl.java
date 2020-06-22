@@ -1,16 +1,17 @@
-package com.resolvix.sample.service.ws;
+package com.resolvix.sample.service.xml.ws;
 
-import com.resolvix.lib.service.ws.BaseWsMessageHandlerImpl;
+import com.resolvix.lib.service.xml.ws.BaseXmlWsMessageHandlerImpl;
+import com.resolvix.sample.service.api.SampleCheckpoints;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.xml.ws.handler.LogicalMessageContext;
 import javax.xml.ws.handler.MessageContext;
 
-public class SampleWsMessageHandlerImpl
-    extends BaseWsMessageHandlerImpl
+public class SampleXmlWsMessageHandlerImpl
+    extends BaseXmlWsMessageHandlerImpl<SampleCheckpoints>
 {
-    public static final Logger LOGGER = LoggerFactory.getLogger(SampleWsMessageHandlerImpl.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(SampleXmlWsMessageHandlerImpl.class);
 
     @Override
     protected Logger getLogger() {
