@@ -26,6 +26,11 @@
     <!-- Maven plugin dependencies -->
     <jaxws-maven-plugin.version>2.6</jaxws-maven-plugin.version>
 
+    <javax-jws-api.version>1.1</javax-jws-api.version>
+    <jaxb-api.version>2.3.1</jaxb-api.version>
+    <jaxws-api.version>2.3.1</jaxws-api.version>
+    <jaxws-tools.version>2.3.3</jaxws-tools.version>
+
     <!-- Implementation dependencies -->
     <com-google-guava.version>26.0-jre</com-google-guava.version>
 
@@ -39,6 +44,24 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>javax.jws</groupId>
+      <artifactId>javax.jws-api</artifactId>
+      <version>${javax-jws-api.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.xml.ws</groupId>
+      <artifactId>jaxws-api</artifactId>
+      <version>${jaxws-api.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>${jaxb-api.version}</version>
+    </dependency>
+
     <!-- Implementation dependencies -->
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -113,10 +136,27 @@
           <dependency>
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>jaxws-tools</artifactId>
-            <version>2.3.2</version>
+            <version>${jaxws-tools.version}</version>
           </dependency>
         </dependencies>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>war</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <webappDirectory>src/main/webapp</webappDirectory>
+          <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+        </configuration>
+      </plugin>
+
     </plugins>
 
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
