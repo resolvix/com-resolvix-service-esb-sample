@@ -79,8 +79,8 @@ public class SampleEsbServiceRequestHandlerImpl
     }
 
     @Override
-    protected <E extends Exception> E fault(ProcessingContext processingContext, ServiceFault sf)
-        throws Exception
+    protected <T extends Throwable> T fault(ProcessingContext processingContext, ServiceFault sf)
+        throws Throwable
     {
         return SERVICE_FAULT_MAP.map(processingContext, sf) ;
     }

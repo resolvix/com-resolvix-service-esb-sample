@@ -29,6 +29,7 @@ public class SampleEsbServiceImpl
     @Resource
     private WebServiceContext context;
 
+    @SuppressWarnings("unchecked")
     private SampleEsbServiceImpl() {
         List<Handler> handlerChain = new ArrayList<>();
         handlerChain.add(new SampleXmlWsSoapMessageHandlerImpl());
@@ -54,7 +55,7 @@ public class SampleEsbServiceImpl
 
         try {
             return execute(SampleEsbServiceRequestHandlerImpl.class, request);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw new RuntimeException(e);
         }
     }
