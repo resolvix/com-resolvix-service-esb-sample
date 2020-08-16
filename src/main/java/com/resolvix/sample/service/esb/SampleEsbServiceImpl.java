@@ -14,7 +14,7 @@ public class SampleEsbServiceImpl
     {
         try {
             return execute(SampleEsbServiceRequestHandlerImpl.class, request);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw new RuntimeException(e);
         }
     }
