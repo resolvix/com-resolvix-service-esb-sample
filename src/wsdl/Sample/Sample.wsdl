@@ -2,6 +2,7 @@
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        name="SampleEsbService"
         targetNamespace="http://esb.service.resolvix.com/sample/"
         xmlns:tns="http://esb.service.resolvix.com/sample/"
         xmlns:cdt="http://esb.service.resolvix.com/sample/customDataTypes/"
@@ -44,7 +45,7 @@
         </wsdl:operation>
     </wsdl:portType>
 
-    <wsdl:binding name="SampleSoapBinding" type="tns:SamplePortType">
+    <wsdl:binding name="SampleSoapPortBinding" type="tns:SamplePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
             <wsdl:operation name="SampleOperation">
             <soap:operation soapAction="http://esb.service.resolvix.com/sample/SampleOperation"/>
@@ -63,9 +64,9 @@
         </wsdl:operation>
     </wsdl:binding>
 
-    <wsdl:service name="SampleService">
-        <wsdl:documentation>SampleService</wsdl:documentation>
-        <wsdl:port name="SamplePort" binding="tns:SampleSoapBinding">
+    <wsdl:service name="SampleEsbService">
+        <wsdl:documentation>SampleEsbService</wsdl:documentation>
+        <wsdl:port name="SampleSoapPort" binding="tns:SampleSoapPortBinding">
             <soap:address location="http://esb.service.resolvix.com/sample/"/>
         </wsdl:port>
     </wsdl:service>

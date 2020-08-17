@@ -124,7 +124,7 @@
         <configuration>
           <!-- The name of your generated source package -->
           <packageName>com.resolvix.service.soa</packageName>
-          <wsdlDirectory>src/wsdl</wsdlDirectory>
+          <wsdlDirectory>${project.basedir}/src/wsdl</wsdlDirectory>
           <wsdlFiles>
             <wsdlFile>Sample/Sample.wsdl</wsdlFile>
           </wsdlFiles>
@@ -152,11 +152,16 @@
           </execution>
         </executions>
         <configuration>
-          <webappDirectory>src/main/webapp</webappDirectory>
+          <warSourceDirectory>src/main/webapp</warSourceDirectory>
           <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+          <webResources>
+            <resource>
+              <directory>src/wsdl</directory>
+              <targetPath>WEB-INF/wsdl</targetPath>
+            </resource>
+          </webResources>
         </configuration>
       </plugin>
-
     </plugins>
 
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
