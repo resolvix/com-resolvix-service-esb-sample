@@ -6,8 +6,9 @@ import com.resolvix.service.soa.*;
 import javax.jws.WebService;
 
 @WebService(
+    name = "SamplePortType",
     serviceName = "SampleEsbService",
-    targetNamespace = "http://esb.service.resolvix.com/sample/",
+    targetNamespace = "http://esb.service.resolvix.com/sample/SampleEsbService",
     portName = "SampleSoapPort",
     endpointInterface = "com.resolvix.service.soa.SamplePortType")
 public class SampleEsbServiceImpl
