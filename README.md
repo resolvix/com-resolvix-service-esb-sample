@@ -9,14 +9,18 @@ the framework.
 
 ## Development environment
 
+This project generates a WAR file that may be packaged for deployment
+using an EAR file using the [com-resolvix-service-esb-sample-ear](https://github.com/resolvix/com-resolvix-service-esb-sample-ear)
+project.
+
 ### Java
 
 This project may be compiled with Java 14.
 
 ### Application server compatibility
 
-This project has been tested using the following Java EE 7 -compatible
-applications servers -
+This project has been briefly tested, after packaging using an EAR file, using
+the following Java EE 7 -compatible applications servers -
 
 1. Payara 5.2020.3 (OpenJ9 JVM)
 2. Wildly 20.0.1 (OpenJ9 JVM)
