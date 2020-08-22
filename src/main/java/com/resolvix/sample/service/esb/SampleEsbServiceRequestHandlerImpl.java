@@ -1,10 +1,10 @@
 package com.resolvix.sample.service.esb;
 
-import com.resolvix.lib.service.esb.BaseEsbServiceRequestHandlerImpl;
-import com.resolvix.lib.service.esb.ServiceFaultMap;
 import com.resolvix.lib.service.api.ServiceException;
 import com.resolvix.lib.service.api.ServiceFault;
 import com.resolvix.lib.service.api.ServiceFaultMaplet;
+import com.resolvix.lib.service.esb.BaseEsbServiceRequestHandlerImpl;
+import com.resolvix.lib.service.esb.ServiceFaultMap;
 import com.resolvix.sample.service.esb.exception.SampleFaultOne;
 import com.resolvix.sample.service.esb.exception.SampleFaultTwo;
 import com.resolvix.service.soa.SampleFault;
@@ -18,7 +18,7 @@ public class SampleEsbServiceRequestHandlerImpl
     extends BaseEsbServiceRequestHandlerImpl<
         SampleRequest,
         SampleResponse,
-        ProcessingContext>
+        ProcessingContext<SampleRequest>>
 {
 
     private static final List<ServiceFaultMaplet<?, ?, ?>> SERVICE_FAULT_MAPLETS = Arrays.asList(
@@ -51,34 +51,47 @@ public class SampleEsbServiceRequestHandlerImpl
     }
 
     @Override
-    protected ProcessingContext initialise(SampleRequest sampleRequest)
+    protected ProcessingContext<SampleRequest> initialise(SampleRequest sampleRequest)
+    {
+        return new ProcessingContext<>(sampleRequest);
+    }
+
+    @Override
+    protected void process(ProcessingContext<SampleRequest> context)
+        throws ServiceException, ServiceFault
+    {
+        switch (context.getRequest().getName()) {
+            case "SampleRequestResponse":
+                break;
+
+            case "SampleFaultOne":
+                throw new SampleFaultOne();
+
+            case "SampleFaultTwo":
+                throw new SampleFaultTwo();
+
+            default:
+                throw new IllegalArgumentException(
+                    String.format("%s is illegal.", context.getRequest().getName()));
+        }
+    }
+
+    @Override
+    protected SampleResponse respond(ProcessingContext<SampleRequest> context)
+        throws ServiceException, ServiceFault
     {
         return null;
     }
 
     @Override
-    protected void process(ProcessingContext context)
-        throws ServiceException, ServiceFault
-    {
-
-    }
-
-    @Override
-    protected SampleResponse respond(ProcessingContext context)
-        throws ServiceException, ServiceFault
-    {
-        return null;
-    }
-
-    @Override
-    protected SampleResponse respond(ProcessingContext context, ServiceException e)
+    protected SampleResponse respond(ProcessingContext<SampleRequest> context, ServiceException e)
         throws ServiceFault
     {
         return null;
     }
 
     @Override
-    protected <T extends Throwable> T fault(ProcessingContext processingContext, ServiceFault sf)
+    protected <T extends Throwable> T fault(ProcessingContext<SampleRequest> processingContext, ServiceFault sf)
         throws Throwable
     {
         return SERVICE_FAULT_MAP.map(processingContext, sf) ;
