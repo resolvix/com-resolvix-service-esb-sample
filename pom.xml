@@ -32,7 +32,7 @@
     <jaxws-tools.version>2.3.3</jaxws-tools.version>
 
     <!-- Implementation dependencies -->
-    <com-google-guava.version>26.0-jre</com-google-guava.version>
+    <com-google-guava.version>29.0-jre</com-google-guava.version>
 
     <com-resolvix-lib-service.version>0.0.1-SNAPSHOT</com-resolvix-lib-service.version>
     <com-resolvix-lib-service-esb.version>0.0.1-SNAPSHOT</com-resolvix-lib-service-esb.version>
